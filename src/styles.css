@@ -4,7 +4,7 @@
   --accent-purple: #b623d7;
   --bg-dark: #050509;
   --bg-light: #f5f3f8;
-  --text-main: #111827;
+  --text-main: #445b8c;
   --text-muted: #4b5563;
   --max-width: 1120px;
   --radius-lg: 16px;
@@ -25,9 +25,14 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   color: var(--text-main);
-  background: radial-gradient(circle at top left, #2b1644 0%, #050509 60%, #020106 100%);
+  background: radial-gradient(
+    circle at top left,
+    #2b1644 0%,
+    #050509 60%,
+    #020106 100%
+  );
   min-height: 100vh;
 }
 
@@ -93,7 +98,8 @@ body {
   height: 40px;
   border-radius: 999px;
   background: radial-gradient(circle at 30% 0, #ffffff, var(--soft-purple));
-  box-shadow: 0 0 0 3px rgba(182, 35, 215, 0.6), 0 0 40px rgba(182, 35, 215, 0.75);
+  box-shadow: 0 0 0 3px rgba(182, 35, 215, 0.6),
+    0 0 40px rgba(182, 35, 215, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +150,11 @@ body {
   margin: 0;
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
-  background: radial-gradient(circle at top left, rgba(185, 154, 197, 0.25), transparent);
+  background: radial-gradient(
+    circle at top left,
+    rgba(185, 154, 197, 0.25),
+    transparent
+  );
 }
 
 .nav-link {
@@ -269,7 +279,11 @@ body {
 
 .card {
   border-radius: var(--radius-md);
-  background: radial-gradient(circle at top left, rgba(185, 154, 197, 0.16), #020617);
+  background: radial-gradient(
+    circle at top left,
+    rgba(185, 154, 197, 0.16),
+    #020617
+  );
   border: 1px solid rgba(148, 163, 184, 0.6);
   padding: 1rem;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
@@ -284,7 +298,11 @@ body {
 }
 
 .panel {
-  background: radial-gradient(circle at top left, rgba(185, 154, 197, 0.16), #020617);
+  background: radial-gradient(
+    circle at top left,
+    rgba(185, 154, 197, 0.16),
+    #020617
+  );
   border-radius: var(--radius-lg);
   border: 1px solid rgba(148, 163, 184, 0.6);
   padding: 1.5rem;

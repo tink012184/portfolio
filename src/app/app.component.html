@@ -3,7 +3,9 @@
 <header class="site-header">
   <div class="container header-inner">
     <a routerLink="/" class="brand" aria-label="Code By Lissa home">
-      <div class="brand-mark" aria-hidden="true">⚡</div>
+      <div class="brand-mark" aria-hidden="true">
+        <img src="../assets/Code_By_Lissa_Logo.png" alt="Code By Lissa Logo" />
+      </div>
       <div class="brand-text">
         <span class="brand-title">Code By Lissa</span>
         <span class="brand-subtitle">Portfolio · ROC IV · Angular</span>
@@ -15,8 +17,7 @@
       type="button"
       aria-expanded="false"
       aria-controls="primary-nav"
-      (click)="navOpen = !navOpen"
-    >
+      (click)="navOpen = !navOpen">
       Menu
     </button>
 
@@ -24,8 +25,7 @@
       class="nav"
       id="primary-nav"
       aria-label="Primary navigation"
-      [class.open]="navOpen"
-    >
+      [class.open]="navOpen">
       <ul class="nav-list">
         <li>
           <a
@@ -81,7 +81,9 @@
       © {{ currentYear }} Code By Lissa · Melissa Lutz · Built with Angular
     </div>
     <div class="footer-links">
-      <a href="https://github.com/tink012184" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/tink012184" target="_blank" rel="noopener"
+        >GitHub</a
+      >
       <a href="mailto:mlutz121@gmail.com">Email</a>
       <a routerLink="/resume">Resume</a>
       <a routerLink="/projects" fragment="roc-tools">ROC IV tools</a>
