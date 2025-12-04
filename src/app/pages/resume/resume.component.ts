@@ -10,5 +10,5 @@ import { RouterLink } from "@angular/router";
   styleUrls: ["./resume.component.css"],
 })
 export class ResumeComponent {
-  resumeDownloadUrl = "../assets/docs/Melissa_Lutz_Resume.pdf";
+  resumeDownloadUrl = "assets/docs/Melissa_Lutz_Resume.pdf";
 }
