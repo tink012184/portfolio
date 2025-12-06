@@ -3,7 +3,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { ResumeComponent } from "./pages/resume/resume.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
-import { IrisDocumenterComponent } from "./pages/iris-documenter/iris-documenter.component";
+import { IrisComponent } from "./pages/iris-documenter/iris.component";
 import { RpgDemoComponent } from "./pages/rpg-demo/rpg-demo.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 
@@ -22,7 +22,7 @@ export const routes: Routes = [
   },
   {
     path: "iris-documenter",
-    component: IrisDocumenterComponent,
+    component: IrisComponent,
     title: "IRIS Documenter | Code By Lissa",
   },
   {

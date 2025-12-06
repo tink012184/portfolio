@@ -1,0 +1,53 @@
+<div class="iris-container">
+  <div class="node-wrapper">
+    <label>Node:</label>
+    <input type="text" [(ngModel)]="mainNode" />
+  </div>
+
+  <form (ngSubmit)="generateOutput()" autocomplete="off">
+    <div class="section-grid">
+      <!-- Repeat 3 account blocks -->
+      <fieldset
+        class="order-section"
+        *ngFor="let acc of accounts; let i = index">
+        <legend>Account #{{ i + 1 }}</legend>
+
+        <div class="form-row">
+          <label>Address</label>
+          <input type="text" [(ngModel)]="acc.address" name="addr{{ i }}" />
+        </div>
+
+        <div class="form-row">
+          <label>Account #</label>
+          <input type="text" [(ngModel)]="acc.account" name="acct{{ i }}" />
+        </div>
+
+        <div class="form-row">
+          <label>Findings</label>
+          <input type="text" [(ngModel)]="acc.findings" name="find{{ i }}" />
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="reason-wrapper">
+      <label>Reason for NTF:</label>
+      <textarea [(ngModel)]="reason" name="reasonBox"></textarea>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-primary" (click)="generateOutput()">
+        Copy
+      </button>
+
+      <button type="button" class="btn-secondary" (click)="clearAll()">
+        Clear
+      </button>
+
+      <span class="status" *ngIf="showCopied">Copied!</span>
+    </div>
+
+    <div class="output-wrapper" *ngIf="output">
+      <textarea readonly>{{ output }}</textarea>
+    </div>
+  </form>
+</div>
