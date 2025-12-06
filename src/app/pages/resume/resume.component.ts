@@ -1,11 +1,10 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-resume",
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: "./resume.component.html",
   styleUrls: ["./resume.component.css"],
 })
