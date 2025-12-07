@@ -203,7 +203,7 @@ body {
 
 .hero-highlight {
   background-image: linear-gradient(120deg, #f9fafb, #e5d4ff, #f472ff);
-  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 

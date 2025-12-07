@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgForOf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 interface IrisAccount {
@@ -11,7 +11,7 @@ interface IrisAccount {
 @Component({
   selector: "app-iris",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgForOf],
   templateUrl: "./iris.component.html",
   styleUrl: "./iris.component.css",
 })
