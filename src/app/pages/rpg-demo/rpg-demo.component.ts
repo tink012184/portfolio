@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// src/app/pages/rpg-demo/rpg-demo.component.ts
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-rpg-demo',
+  selector: "app-rpg-demo",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './rpg-demo.component.html',
-  styleUrls: ['./rpg-demo.component.css']
+  templateUrl: "./rpg-demo.component.html",
+  styleUrls: ["./rpg-demo.component.css"],
 })
 export class RpgDemoComponent {}

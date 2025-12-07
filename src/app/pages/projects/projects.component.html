@@ -1,5 +1,5 @@
 <section class="section">
-  <header style="margin-bottom: 1.5rem;">
+  <header style="margin-bottom: 1.5rem">
     <h1 class="section-title">Projects</h1>
     <p class="section-subtitle">
       Angular apps, JavaScript utilities, and ROC IV automations.
@@ -9,22 +9,43 @@
   <section class="project-category" aria-label="Angular apps">
     <h2 class="section-title">Angular apps</h2>
     <div class="card-grid">
+      <!-- ✅ RPG CARD WITH EMBEDDED IFRAME -->
       <article class="card">
         <h3>RPG Character Maker</h3>
         <p class="hero-text">
-          Angular SPA with routing and reactive forms that lets users manage players and
-          characters with validation and strong typing.
+          Angular SPA with routing and reactive forms that lets users manage
+          players and characters with validation and strong typing.
         </p>
+
         <div class="hero-actions">
+          <!-- Existing internal demo route -->
           <a routerLink="/rpg-demo" class="btn btn-ghost">View demo</a>
+
+          <!-- Optional: open the built app directly in a new tab -->
+          <a
+            href="assets/rpg-demo/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost">
+            Open full-screen
+          </a>
+        </div>
+
+        <!-- Embedded iframe using the built app in assets -->
+        <div class="card-embed">
+          <iframe
+            class="card-embed-frame"
+            src="assets/rpg-demo/index.html"
+            title="RPG Character Maker demo"></iframe>
         </div>
       </article>
 
+      <!-- ✅ Existing portfolio card unchanged -->
       <article class="card">
         <h3>Portfolio as Angular app</h3>
         <p class="hero-text">
-          This site itself, built as a standalone Angular app with routing and reusable
-          layout.
+          This site itself, built as a standalone Angular app with routing and
+          reusable layout.
         </p>
       </article>
     </div>
@@ -36,8 +57,8 @@
       <article class="card">
         <h3>Text parsing helpers</h3>
         <p class="hero-text">
-          Small utilities to parse outage notes and map them into structured fields for
-          faster form fills and documentation.
+          Small utilities to parse outage notes and map them into structured
+          fields for faster form fills and documentation.
         </p>
       </article>
     </div>
@@ -49,16 +70,17 @@
       <article class="card">
         <h3>Fiber Event Template</h3>
         <p class="hero-text">
-          Guides agents through fiber event triage, collects the right details, and outputs
-          a formatted summary to share with MTs and leadership.
+          Guides agents through fiber event triage, collects the right details,
+          and outputs a formatted summary to share with MTs and leadership.
         </p>
       </article>
 
       <article class="card">
         <h3>IRIS Documenter</h3>
         <p class="hero-text">
-          Helper tool that turns key event details (ticket, node, impact, steps, status)
-          into clean, consistent documentation agents can paste into IRIS/BP.
+          Helper tool that turns key event details (ticket, node, impact, steps,
+          status) into clean, consistent documentation agents can paste into
+          IRIS/BP.
         </p>
         <div class="hero-actions">
           <a routerLink="/iris-documenter" class="btn btn-ghost">View mockup</a>
