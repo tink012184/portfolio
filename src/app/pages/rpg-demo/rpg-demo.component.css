@@ -15,6 +15,7 @@
 }
 
 .rpg-demo__open-link {
+  color: gray;
   display: inline-block;
   margin-bottom: 1rem;
   text-decoration: none;
