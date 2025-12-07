@@ -1,0 +1,212 @@
+/* ---------- Theme & fonts (3+ stacks) ---------- */
+:root {
+  --bg: #0b0f1a;
+  --panel: #111827;
+  --ink: #f9fafb;
+  --muted: #9aa4b2;
+  --accent: #b623d7;
+  --glow: rgba(182, 35, 215, 0.35);
+  --edge: #1f2937;
+}
+
+html,
+body,
+:host {
+  background: var(--bg);
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.65;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif; /* stack #1 */
+}
+
+.title {
+  font-family: "Garamond", Georgia, "Times New Roman", serif; /* stack #2 */
+  letter-spacing: 0.4px;
+  margin: 0;
+  font-weight: 800;
+  text-shadow: 0 0 18px rgba(186, 58, 214, 0.25);
+  color: var(--ink);
+}
+
+.nav a {
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Arial, sans-serif; /* stack #3 */
+  letter-spacing: 0.2px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.6rem;
+  transition: 0.2s ease;
+}
+
+/* Ensure links never appear black or purple */
+.nav a:visited,
+.nav a:link,
+.nav a:active,
+.nav .nav-link:visited,
+.nav .nav-link:link,
+.nav .nav-link:active {
+  color: var(--ink);
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav .nav-link:hover,
+.nav .nav-link:focus {
+  color: #fff;
+  box-shadow: 0 0 0 3px var(--glow);
+  background: #121a2b;
+  outline: 2px solid transparent;
+}
+
+/* Active route highlight */
+.nav a.active {
+  background: #121a2b;
+  box-shadow: 0 0 0 2px var(--glow) inset, 0 0 12px var(--glow);
+}
+
+.nav-link {
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.copyright {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--edge);
+  background: radial-gradient(
+      900px 280px at -10% -60%,
+      rgba(182, 35, 215, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #091022 0%, #0b0f1a 100%);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Brand link: make it flex and remove default link styles */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none; /* removes underline */
+  color: var(--ink); /* inherit site text color */
+}
+
+.brand-link:hover,
+.brand-link:focus {
+  text-decoration: none;
+  color: #fff; /* subtle hover brightness */
+}
+
+.brand-link .logo {
+  font-size: 1.7rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px var(--glow));
+}
+
+.brand-link .title {
+  margin: 0;
+  font-weight: 800;
+  font-family: "Garamond", Georgia, "Times New Roman", serif;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 18px rgba(186, 58, 214, 0.25);
+}
+
+.logo {
+  font-size: 1.7rem;
+  filter: drop-shadow(0 0 10px var(--glow));
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  padding: 2rem 0 3rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--edge);
+  background: #0a0e19;
+  padding: 1.2rem 0 2rem;
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.nav-footer ul {
+  gap: 0.85rem;
+}
+
+@media (max-width: 1500px) {
+  .header-inner {
+    flex-direction: row;
+    align-items: right;
+  }
+  .nav ul {
+    flex-wrap: nowrap;
+  }
+}
+
+.auth-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-small {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--accent);
+  color: #000;
+  border: none;
+}

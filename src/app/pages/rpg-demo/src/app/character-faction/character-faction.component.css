@@ -1,0 +1,77 @@
+/* GENERAL LAYOUT */
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  color: #ffb3b3;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.faction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.faction-card {
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.faction-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+.faction-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.faction-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* =======================================================
+   VARIEGATED GRADIENTS BASED ON FACTION NAME
+   ======================================================= */
+
+/* THE IRON BROTHERHOOD → variegated orange */
+.faction-card[data-faction="The Iron Brotherhood"],
+.faction-card[data-faction="The Iron Brotherhood"] {
+  background: linear-gradient(145deg, #b94a29, #ffb347);
+  border: 1px solid #ffb23e;
+}
+
+/* THE ARCANE ORDER → variegated blue → purple */
+.faction-card[data-faction="The Arcane Order"],
+.faction-card[data-faction="The Arcane Order"] {
+  background: linear-gradient(145deg, #3b3ff0, #b623d7);
+  border: 1px solid #8b5cf6;
+}
+
+/* THE SILENT KNIVES → variegated red */
+.faction-card[data-faction="The Silent Knives"],
+.faction-card[data-faction="The Silent Knives"] {
+  background: linear-gradient(145deg, #9d0f0f, #ff6666);
+  border: 1px solid #f87171;
+}
+
+/* THE NATURE'S GUARDIANS → variegated green */
+.faction-card[data-faction="The Nature's Guardians"],
+.faction-card[data-faction="The Nature's Guardians"] {
+  background: linear-gradient(145deg, #3e2723, #4caf50);
+  border: 1px solid #4ade80;
+}
