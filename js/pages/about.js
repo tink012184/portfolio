@@ -19,7 +19,7 @@
       <p>
         Outside of the ROC, I’m a Bellevue University graduate (BS, Web Development, March 2026)
         and I keep sharpening my skills in JavaScript, Node.js, Angular, and DevOps. This portfolio brings together my
-        school projects, ROC tools, and experiments under a single purple-themed brand.
+        school projects, ROC tools, and experiments under a single brand.
       </p>
     </div>
 
@@ -31,7 +31,7 @@
         <li><strong>Frameworks & runtimes:</strong> Angular, Node.js</li>
         <li><strong>Back end:</strong> Server-side JavaScript behind the ROC Note Tool</li>
         <li><strong>Automation:</strong> Excel/VBA task assignment tools</li>
-        <li><strong>Tools:</strong> Git, GitHub, GitLab CI, VS Code</li>
+        <li><strong>Tools:</strong> Git, GitHub, GitLab CI, VS Code, Kiro</li>
       </ul>
     </aside>
   </section>`;

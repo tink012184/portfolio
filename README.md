@@ -8,7 +8,7 @@ A static portfolio site written in vanilla JavaScript using plain <script> tags.
 - `js/main.js` - route table, nav and footer behavior
 - `js/router.js` - small hash router (`#/about`, `#/projects#roc-tools`)
 - `js/pages/*.js` - one script per page, registering `render()` (and optional `mount()`) on `window.Pages`
-- `css/` - global styles plus the IRIS Documenter styles
+- `css/` - global styles plus the demo-page styles (Outage Template, Repeat Outage Email)
 - `assets/` - images, resume PDF, and the prebuilt RPG Character Maker demo
 
 ## Run locally

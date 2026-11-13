@@ -15,7 +15,7 @@
       <div class="card-grid">
         <!-- ✅ RPG CARD WITH EMBEDDED IFRAME -->
         <article class="card">
-          <h3>RPG Character Maker</h3>
+          <h3>RPG Character Maker (demo)</h3>
           <p class="hero-text">
             Angular SPA with routing and reactive forms that lets users manage
             players and characters with validation and strong typing.
@@ -62,22 +62,27 @@
           </p>
         </article>
         <article class="card">
-          <h3>Fiber Event Template</h3>
+          <h3>Outage Template (demo)</h3>
           <p class="hero-text">
-            Built in JavaScript. Guides agents through fiber event triage, collects the right details,
-            and outputs a formatted summary to share with MTs and leadership.
+            A working recreation of my outage-ticket helper: it calculates the repeat
+            tier, parses pasted ping and SNR data into a breadcrumb, and builds
+            copy-ready ticket notes. Uses fake data and made-up system names.
           </p>
+          <div class="hero-actions">
+            <a href="#/outage-template" class="btn btn-ghost">Try the demo</a>
+          </div>
         </article>
 
         <article class="card">
-          <h3>IRIS Documenter</h3>
+          <h3>Repeat Outage Email Creator (demo)</h3>
           <p class="hero-text">
-            Helper tool that turns key event details (ticket, node, impact, steps,
-            status) into clean, consistent documentation agents can paste into
-            IRIS/BP.
+            A working recreation of my repeat-outage tool: pick the location, enter
+            the outage counts, and it works out the tier, flags when no email is
+            needed, and builds the recipients, subject and body. Uses fake data and
+            made-up systems.
           </p>
           <div class="hero-actions">
-            <a href="#/iris-documenter" class="btn btn-ghost">View mockup</a>
+            <a href="#/repeat-outage-template" class="btn btn-ghost">Try the demo</a>
           </div>
         </article>
       </div>

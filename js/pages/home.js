@@ -36,11 +36,11 @@
             fiber events, repeat outage documentation, and IRIS updates for all four ROCs.
           </li>
           <li class="hero-text" style="font-size: 0.85rem; margin-bottom: 0.6rem;">
-            <strong>IRIS Documenter</strong> – Helper that turns event details into clean,
-            consistent IRIS/BP notes.
+            <strong>Outage Template (demo)</strong> – Working recreation of an outage-ticket helper:
+            repeat tiers, node breadcrumbs, and copy-ready notes, all with fake data.
           </li>
           <li class="hero-text" style="font-size: 0.85rem;">
-            <strong>RPG Character Maker</strong> – Angular SPA showcasing reactive forms,
+            <strong>RPG Character Maker (demo)</strong> – Angular SPA showcasing reactive forms,
             routing, and services.
           </li>
         </ul>
@@ -70,13 +70,13 @@
         </p>
       </article>
       <article class="card">
-        <h3>IRIS Documenter</h3>
+        <h3>Outage Template (demo)</h3>
         <p class="hero-text">
-          Converts ROC event details into structured IRIS/BP documentation in one click.
+          Try a working recreation of my outage-ticket helper, built with fake data.
         </p>
       </article>
       <article class="card">
-        <h3>RPG Character Maker</h3>
+        <h3>RPG Character Maker (demo)</h3>
         <p class="hero-text">
           Angular SPA with reactive forms and routing for players and characters.
         </p>

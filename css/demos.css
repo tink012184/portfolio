@@ -1,0 +1,394 @@
+/* Shared styles for the demo pages (Outage Template, Repeat Outage Email) */
+:is([data-page="outage"], [data-page="repeat-outage"]) .od {
+  color: #e5e7eb;
+  padding: 1.5rem 0 3rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-header h1 {
+  margin: 0 0 0.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-header p {
+  max-width: 760px;
+  margin: 0 0 1.25rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--soft-purple);
+  color: var(--soft-purple);
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  color: #fde68a;
+  font-weight: 600;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) [hidden] {
+  display: none !important;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-sec {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(2, 6, 23, 0.7);
+  padding: 1rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-sec h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: var(--soft-purple);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-output {
+  margin-top: 1rem;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.85rem;
+  min-width: 0;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-row {
+  display: grid;
+  gap: 0.75rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-row-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-row-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) label,
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-req {
+  color: #f87171;
+  margin-left: 0.15rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-hint {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-warn {
+  color: #fbbf24;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) input[type="text"],
+:is([data-page="outage"], [data-page="repeat-outage"]) select,
+:is([data-page="outage"], [data-page="repeat-outage"]) textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  background: #0b1220;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) textarea {
+  resize: vertical;
+  min-height: 3rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) textarea[readonly] {
+  background: #070c18;
+  color: #cbd5e1;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-paste {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) input:focus-visible,
+:is([data-page="outage"], [data-page="repeat-outage"]) select:focus-visible,
+:is([data-page="outage"], [data-page="repeat-outage"]) textarea:focus-visible,
+:is([data-page="outage"], [data-page="repeat-outage"]) button:focus-visible {
+  outline: 2px solid var(--soft-purple);
+  outline-offset: 2px;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-missing {
+  outline: 2px solid #f87171;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-inline {
+  display: flex;
+  gap: 0.5rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+  white-space: nowrap;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent-purple), var(--soft-purple));
+  color: #fff;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-primary:hover {
+  opacity: 0.9;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-danger {
+  border-color: #f87171;
+  color: #fca5a5;
+  margin-left: auto;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-active {
+  background: rgba(185, 154, 197, 0.3);
+  border-color: var(--soft-purple);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--soft-purple);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-chip {
+  font: inherit;
+  font-size: 0.75rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(185, 154, 197, 0.6);
+  background: rgba(185, 154, 197, 0.1);
+  color: #f1f5f9;
+  cursor: pointer;
+  text-align: left;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-chip span {
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg label {
+  position: relative;
+  font-weight: 500;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg span {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  font-size: 0.8rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg input:checked + span {
+  background: rgba(185, 154, 197, 0.3);
+  border-color: var(--soft-purple);
+  color: #fff;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-seg input:focus-visible + span {
+  outline: 2px solid var(--soft-purple);
+  outline-offset: 2px;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-esc {
+  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  padding-top: 0.75rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-esc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.4rem 0;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-related,
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-plain {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-related li,
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-plain li {
+  margin-bottom: 0.3rem;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-table th,
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-table td {
+  text-align: left;
+  padding: 0.3rem 0.4rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-row-warn td {
+  color: #fcd34d;
+  font-weight: 600;
+}
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-status {
+  font-size: 0.85rem;
+  color: #86efac;
+  font-weight: 600;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-status-error {
+  color: #fca5a5;
+}
+
+@media (max-width: 960px) {
+  :is([data-page="outage"], [data-page="repeat-outage"]) .od-layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  :is([data-page="outage"], [data-page="repeat-outage"]) .od-row-3,
+  :is([data-page="outage"], [data-page="repeat-outage"]) .od-row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Repeat Outage Email additions ===== */
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-layout-2 {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-alert-link {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 700;
+  white-space: nowrap;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-tier-1 { border-color: #f59e0b; background: rgba(245, 158, 11, 0.12); color: #fde68a; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-tier-2 { border-color: #f97316; background: rgba(249, 115, 22, 0.14); color: #fdba74; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-tier-3 { border-color: #ef4444; background: rgba(239, 68, 68, 0.14); color: #fca5a5; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-tier-4 { border-color: #dc2626; background: rgba(185, 28, 28, 0.28); color: #fecaca; }
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-email {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 0.9rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-email dt { font-weight: 700; color: #94a3b8; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-email dd { margin: 0; word-break: break-word; color: #f1f5f9; }
+
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-drop {
+  border: 2px dashed rgba(148, 163, 184, 0.55);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-drop p { margin: 0 0 0.3rem; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-drop:hover,
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-drop-over {
+  border-color: var(--soft-purple);
+  background: rgba(185, 154, 197, 0.08);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-thumbs {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.5rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-thumbs li { display: flex; flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-thumbs img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-note {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(185, 154, 197, 0.12);
+  font-size: 0.85rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-details {
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-details summary { cursor: pointer; font-weight: 600; }
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-details ul { margin: 0.4rem 0 0.2rem; padding-left: 1.2rem; color: #cbd5e1; }
+
+@media (max-width: 960px) {
+  :is([data-page="outage"], [data-page="repeat-outage"]) .od-layout-2 { grid-template-columns: 1fr; }
+}

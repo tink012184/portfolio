@@ -44,6 +44,7 @@
           <li>HTML, CSS, JavaScript, Angular, TypeScript</li>
           <li>Node.js (server-side JavaScript) & basic SQL</li>
           <li>VBA automation for Excel</li>
+          <li>Proficient in Kiro (AI-assisted development)</li>
           <li>SmartSheet, Tableau, SharePoint</li>
         </ul>
 
@@ -126,20 +127,18 @@
             server backend, and used by all four ROC teams.
           </li>
           <li>
-            <strong>RPG Character Builder (Angular)</strong> · demo SPA for Web425
-            coursework.
+            <strong>Outage Template (demo)</strong> · working recreation of my
+            outage-ticket helper: repeat tiers, node breadcrumbs from pasted
+            ping and SNR data, and copy-ready notes.
           </li>
           <li>
-            <strong>Fiber Outage Template</strong> · standardized fiber event
-            email and notes.
+            <strong>Repeat Outage Email Creator (demo)</strong> · working
+            recreation of my repeat-outage tool: tier calculation, recipients,
+            subject, body, and screenshot attachments.
           </li>
           <li>
-            <strong>Repeat Outage Builders</strong> · tools for Y6/repeat outage
-            communication.
-          </li>
-          <li>
-            <strong>ISP Email Generator</strong> · guided email builder for ISP
-            escalations.
+            <strong>RPG Character Maker (demo)</strong> · Angular SPA with routing
+            and reactive forms, built for Web425 coursework.
           </li>
           <li>
             <strong>JavaScript Automation Tools</strong> · utilities for ROC
@@ -147,7 +146,7 @@
           </li>
         </ul>
 
-        <h2>Education</h2>
+<h2>Education</h2>
         <ul>
           <li>
             <strong>BS, Web Development</strong> — Bellevue University,

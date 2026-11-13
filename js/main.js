@@ -11,7 +11,8 @@
     page("about", "/about", "About | Code By Lissa"),
     page("resume", "/resume", "Resume & Expertise | Code By Lissa"),
     page("projects", "/projects", "Projects | Code By Lissa"),
-    page("iris", "/iris-documenter", "IRIS Documenter | Code By Lissa"),
+    page("outage", "/outage-template", "Outage Template Demo | Code By Lissa"),
+    page("repeat-outage", "/repeat-outage-template", "Repeat Outage Email Demo | Code By Lissa"),
     page("rpg-demo", "/rpg-demo", "RPG Character Maker Demo | Code By Lissa"),
   ];
   const notFound = page("not-found", "*", "Page Not Found | Code By Lissa");
