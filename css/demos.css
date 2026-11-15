@@ -166,7 +166,7 @@
 }
 :is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-primary {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--accent-purple), var(--soft-purple));
+  background: linear-gradient(135deg, var(--accent-purple), var(--btn-end));
   color: #fff;
 }
 :is([data-page="outage"], [data-page="repeat-outage"]) .od-btn-primary:hover {
@@ -412,4 +412,10 @@
 }
 :is([data-page="outage"], [data-page="repeat-outage"]) .od-demo-bar .od-btn {
   margin-left: auto;
+}
+
+/* Placeholder text: the browser default gray is just under 4.5:1 on these fields. */
+:is([data-page="outage"], [data-page="repeat-outage"]) ::placeholder {
+  color: #94a3b8;
+  opacity: 1;
 }

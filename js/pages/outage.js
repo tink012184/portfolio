@@ -619,11 +619,13 @@
         escChoice = "";
         setVal("od-esc-log", "");
         $("od-esc-sup").classList.add("od-missing");
+        $("od-esc-sup").setAttribute("aria-invalid", "true");
         say("Enter the supervisor name first.", true);
         update();
         return;
       }
       $("od-esc-sup").classList.remove("od-missing");
+      $("od-esc-sup").removeAttribute("aria-invalid");
 
       let line;
       if (which === "notified") {
@@ -749,6 +751,14 @@
     }
 
     // ---- Validation + copy ----
+    // Missing fields get a red outline and aria-invalid so the state is not color-only.
+    function clearMissing() {
+      root.querySelectorAll(".od-missing").forEach((el) => {
+        el.classList.remove("od-missing");
+        el.removeAttribute("aria-invalid");
+      });
+    }
+
     function validate(includeDispatch) {
       const required = [
         ["od-scope", val("od-scope")],
@@ -761,9 +771,12 @@
         required.push(["od-tech", techStatus() === "noTech" || val("od-tech").trim()]);
         required.push(["od-ts-label", techStatus()]);
       }
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
+      clearMissing();
       const missing = required.filter(([, v]) => !v);
-      missing.forEach(([id]) => $(id).classList.add("od-missing"));
+      missing.forEach(([id]) => {
+        $(id).classList.add("od-missing");
+        if ($(id).tagName !== "SPAN") $(id).setAttribute("aria-invalid", "true");
+      });
       if (missing.length) {
         say("Fill in the highlighted fields first.", true);
         const first = $(missing[0][0]);
@@ -816,7 +829,7 @@
         "od-address", "od-tech", "od-sup", "od-additional", "od-ping", "od-snr", "od-esc-sup",
         "od-esc-log", "od-related-input"].forEach((id) => setVal(id, ""));
       root.querySelectorAll('input[name="od-techStatus"]').forEach((r) => (r.checked = false));
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
+      clearMissing();
       root.querySelectorAll("[data-esc]").forEach((b) => b.classList.remove("od-btn-active"));
       escalationNotes = "";
       escChoice = "";
@@ -842,6 +855,7 @@
     // ---- Wiring ----
     root.addEventListener("input", (e) => {
       if (e.target.classList) e.target.classList.remove("od-missing");
+      if (e.target.removeAttribute) e.target.removeAttribute("aria-invalid");
       if (e.target.id === "od-order" || e.target.id === "od-related-input" || e.target.id === "od-esc-sup") return;
       update();
     });

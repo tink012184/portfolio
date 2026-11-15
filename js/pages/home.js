@@ -75,7 +75,7 @@
           Try a working recreation of my outage-ticket helper, built with fake data.
         </p>
         <div class="hero-actions">
-          <a href="#/outage-template" class="btn btn-ghost">Try the demo</a>
+          <a href="#/outage-template" class="btn btn-ghost">Try the demo<span class="sr-only"> of the Outage Template</span></a>
         </div>
       </article>
       <article class="card">
@@ -84,7 +84,7 @@
           Angular SPA with reactive forms and routing for players and characters.
         </p>
         <div class="hero-actions">
-          <a href="#/rpg-demo" class="btn btn-ghost">View demo</a>
+          <a href="#/rpg-demo" class="btn btn-ghost">View demo<span class="sr-only"> of the RPG Character Maker</span></a>
         </div>
       </article>
     </div>

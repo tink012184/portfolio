@@ -56,6 +56,32 @@
           <li>Process improvement and playbook creation</li>
           <li>Tool-building under the Code By Lissa brand</li>
         </ul>
+
+        <h2>Highlighted projects</h2>
+        <ul>
+          <li>
+            <strong>ROC Note Tool – Creator</strong> · built with JavaScript and a
+            server backend, and used by all four ROC teams.
+          </li>
+          <li>
+            <strong>Outage Template (demo)</strong> · working recreation of my
+            outage-ticket helper: repeat tiers, node breadcrumbs from pasted
+            ping and SNR data, and copy-ready notes.
+          </li>
+          <li>
+            <strong>Repeat Outage Email Creator (demo)</strong> · working
+            recreation of my repeat-outage tool: tier calculation, recipients,
+            subject, body, and screenshot attachments.
+          </li>
+          <li>
+            <strong>RPG Character Maker (demo)</strong> · Angular SPA with routing
+            and reactive forms, built for Web425 coursework.
+          </li>
+          <li>
+            <strong>Text Parsing Helpers</strong> · plain JavaScript utilities that
+            turn outage notes into structured fields.
+          </li>
+        </ul>
       </aside>
 
       <!-- ===== RIGHT PANEL / MAIN CONTENT ===== -->
@@ -120,33 +146,7 @@
           <li>Assistant Manager — Teddy Bear Stuffing Factory (2008–2009)</li>
         </ul>
 
-        <h2>Highlighted projects</h2>
-        <ul>
-          <li>
-            <strong>ROC Note Tool – Creator</strong> · built with JavaScript and a
-            server backend, and used by all four ROC teams.
-          </li>
-          <li>
-            <strong>Outage Template (demo)</strong> · working recreation of my
-            outage-ticket helper: repeat tiers, node breadcrumbs from pasted
-            ping and SNR data, and copy-ready notes.
-          </li>
-          <li>
-            <strong>Repeat Outage Email Creator (demo)</strong> · working
-            recreation of my repeat-outage tool: tier calculation, recipients,
-            subject, body, and screenshot attachments.
-          </li>
-          <li>
-            <strong>RPG Character Maker (demo)</strong> · Angular SPA with routing
-            and reactive forms, built for Web425 coursework.
-          </li>
-          <li>
-            <strong>Text Parsing Helpers</strong> · plain JavaScript utilities that
-            turn outage notes into structured fields.
-          </li>
-        </ul>
-
-<h2>Education</h2>
+        <h2>Education</h2>
         <ul>
           <li>
             <strong>BS, Web Development</strong> — Bellevue University,

@@ -46,7 +46,11 @@
   function markActive(path) {
     navLinks.forEach((link) => {
       const target = link.getAttribute("href").replace(/^#/, "");
-      link.classList.toggle("active", target === path);
+      const isCurrent = target === path;
+      link.classList.toggle("active", isCurrent);
+      // Tell screen readers which page is current, not just sighted users.
+      if (isCurrent) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
     });
   }
 

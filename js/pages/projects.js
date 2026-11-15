@@ -23,8 +23,8 @@
 
           <div class="hero-actions">
             <!-- Existing internal demo route -->
-            <a href="#/rpg-demo" class="btn btn-ghost">View demo</a>
-            <a href="https://github.com/tink012184/portfolio/tree/main/rpg-character-maker" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
+            <a href="#/rpg-demo" class="btn btn-ghost">View demo<span class="sr-only"> of the RPG Character Maker</span></a>
+            <a href="https://github.com/tink012184/portfolio/tree/main/rpg-character-maker" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> for the RPG Character Maker (opens in a new tab)</span></a>
           </div>
         </article>
 
@@ -35,7 +35,7 @@
             This site itself, built with vanilla JavaScript, a small hash router, and reusable page templates, with no framework or build step.
           </p>
           <div class="hero-actions">
-            <a href="https://github.com/tink012184/portfolio" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
+            <a href="https://github.com/tink012184/portfolio" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> for this portfolio site (opens in a new tab)</span></a>
           </div>
         </article>
       </div>
@@ -74,8 +74,8 @@
             copy-ready ticket notes. Uses fake data and made-up system names.
           </p>
           <div class="hero-actions">
-            <a href="#/outage-template" class="btn btn-ghost">Try the demo</a>
-            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
+            <a href="#/outage-template" class="btn btn-ghost">Try the demo<span class="sr-only"> of the Outage Template</span></a>
+            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> for the Outage Template demo (opens in a new tab)</span></a>
           </div>
         </article>
 
@@ -88,8 +88,8 @@
             made-up systems.
           </p>
           <div class="hero-actions">
-            <a href="#/repeat-outage-template" class="btn btn-ghost">Try the demo</a>
-            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/repeat-outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
+            <a href="#/repeat-outage-template" class="btn btn-ghost">Try the demo<span class="sr-only"> of the Repeat Outage Email Creator</span></a>
+            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/repeat-outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> for the Repeat Outage Email Creator demo (opens in a new tab)</span></a>
           </div>
         </article>
       </div>

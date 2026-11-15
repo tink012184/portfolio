@@ -406,9 +406,16 @@
     }
 
     // ---- Create email ----
+    // Missing fields get a red outline and aria-invalid so the state is not color-only.
     function markMissing(ids) {
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
-      ids.forEach((id) => $(id).classList.add("od-missing"));
+      root.querySelectorAll(".od-missing").forEach((el) => {
+        el.classList.remove("od-missing");
+        el.removeAttribute("aria-invalid");
+      });
+      ids.forEach((id) => {
+        $(id).classList.add("od-missing");
+        $(id).setAttribute("aria-invalid", "true");
+      });
       if (ids.length) $(ids[0]).focus();
     }
 
@@ -440,7 +447,8 @@
         ? `${images.length} screenshot${images.length === 1 ? "" : "s"} attached. In the real tool these are pasted into the email along with the text.`
         : "No screenshots attached.";
       $("ro-preview").hidden = false;
-      $("ro-preview").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      $("ro-preview").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
       say(`Tier ${tier} email created.`, false);
     }
 
@@ -546,8 +554,12 @@
     $("ro-market").addEventListener("change", () => onLocationChange("market"));
     $("ro-hub").addEventListener("change", () => onLocationChange("hub"));
     ["ro-ssa", "ro-unplanned"].forEach((id) => $(id).addEventListener("change", refreshTier));
-    root.addEventListener("input", (e) => e.target.classList && e.target.classList.remove("od-missing"));
-    root.addEventListener("change", (e) => e.target.classList && e.target.classList.remove("od-missing"));
+    const clearInvalid = (e) => {
+      if (e.target.classList) e.target.classList.remove("od-missing");
+      if (e.target.removeAttribute) e.target.removeAttribute("aria-invalid");
+    };
+    root.addEventListener("input", clearInvalid);
+    root.addEventListener("change", clearInvalid);
 
     $("ro-load").addEventListener("click", () => loadOrder());
     $("ro-order").addEventListener("keydown", (e) => {
