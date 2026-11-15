@@ -27,7 +27,7 @@
       <h2>Skills snapshot</h2>
       <ul>
         <li><strong>ROC IV:</strong> Fiber events, node approvals, repeat outages</li>
-        <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
+        <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS, SQL (basic)</li>
         <li><strong>Frameworks & runtimes:</strong> Angular, Node.js</li>
         <li><strong>Back end:</strong> Server-side JavaScript behind the ROC Note Tool</li>
         <li><strong>Automation:</strong> Excel/VBA task assignment tools</li>
