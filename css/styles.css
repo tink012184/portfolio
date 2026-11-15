@@ -512,3 +512,11 @@ body {
   border: 1px solid #b99ac5;
   border-radius: 0.75rem;
 }
+
+/* Headings and <main> receive focus from script after navigation. They are not
+   interactive, so no focus ring is drawn on them. */
+h1[tabindex="-1"]:focus,
+h2[tabindex="-1"]:focus,
+main[tabindex="-1"]:focus {
+  outline: none;
+}

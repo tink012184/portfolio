@@ -141,8 +141,8 @@
             and reactive forms, built for Web425 coursework.
           </li>
           <li>
-            <strong>JavaScript Automation Tools</strong> · utilities for ROC
-            workflows and notes.
+            <strong>Text Parsing Helpers</strong> · plain JavaScript utilities that
+            turn outage notes into structured fields.
           </li>
         </ul>
 

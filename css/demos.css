@@ -392,3 +392,24 @@
 @media (max-width: 960px) {
   :is([data-page="outage"], [data-page="repeat-outage"]) .od-layout-2 { grid-template-columns: 1fr; }
 }
+
+/* ===== Demo banner and reset ===== */
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-demo-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--soft-purple);
+  background: rgba(185, 154, 197, 0.08);
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-demo-note {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2d4ea;
+}
+:is([data-page="outage"], [data-page="repeat-outage"]) .od-demo-bar .od-btn {
+  margin-left: auto;
+}

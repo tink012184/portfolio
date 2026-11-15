@@ -24,6 +24,7 @@
           <div class="hero-actions">
             <!-- Existing internal demo route -->
             <a href="#/rpg-demo" class="btn btn-ghost">View demo</a>
+            <a href="https://github.com/tink012184/portfolio/tree/main/rpg-character-maker" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
           </div>
         </article>
 
@@ -33,6 +34,9 @@
           <p class="hero-text">
             This site itself, built with vanilla JavaScript, a small hash router, and reusable page templates, with no framework or build step.
           </p>
+          <div class="hero-actions">
+            <a href="https://github.com/tink012184/portfolio" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
+          </div>
         </article>
       </div>
     </section>
@@ -58,7 +62,8 @@
           <p class="hero-text">
             JavaScript app with a server backend that streamlines fiber events,
             repeat outage documentation, and IRIS updates. Used by all four ROC
-            teams.
+            teams. It is an internal tool, so there is no public link; the two demos
+            below recreate parts of it with fake data.
           </p>
         </article>
         <article class="card">
@@ -70,6 +75,7 @@
           </p>
           <div class="hero-actions">
             <a href="#/outage-template" class="btn btn-ghost">Try the demo</a>
+            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
           </div>
         </article>
 
@@ -83,6 +89,7 @@
           </p>
           <div class="hero-actions">
             <a href="#/repeat-outage-template" class="btn btn-ghost">Try the demo</a>
+            <a href="https://github.com/tink012184/portfolio/blob/main/js/pages/repeat-outage.js" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View source</a>
           </div>
         </article>
       </div>

@@ -159,14 +159,9 @@
   // Pure logic (no DOM)
   // ------------------------------------------------------------------
 
-  // Repeat tier from the 24 hour and 10 day unplanned outage counts.
-  function pickTier(h24, h10) {
-    if (h10 >= 9 || h24 >= 8) return 4;
-    if (h10 === 8 || h24 === 7) return 3;
-    if (h10 === 7 || h24 === 6) return 2;
-    if (h10 === 6 || h24 === 5) return 1;
-    return null;
-  }
+  // Repeat tier from the 24 hour and 10 day unplanned outage counts (shared with
+  // the Repeat Outage demo, see js/shared.js).
+  const pickTier = window.DemoShared.pickTier;
 
   // Exact Repeat Type text for a pair of counts (24 hour count wins ties).
   function repeatTypeForCounts(h24, h10) {
@@ -307,6 +302,10 @@
       ("WorkBoard" and "TicketDesk"). Load a sample order, tweak the fields, and
       watch the repeat tier, breadcrumb and notes update.
     </p>
+    <div class="od-demo-bar">
+      <span class="od-demo-note">Demo data only. Nothing on this page is real.</span>
+      <button type="button" class="od-btn od-btn-sm" id="od-reset">Reset sample</button>
+    </div>
   </header>
 
   <div id="od-tier-alert" class="od-alert" role="status" aria-live="polite" hidden></div>
@@ -774,24 +773,7 @@
       return true;
     }
 
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (e) {
-        // Fallback for browsers/contexts without the async clipboard API.
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        let ok = false;
-        try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
-        ta.remove();
-        return ok;
-      }
-    }
+    const copyText = window.DemoShared.copyText;
 
     function batteryNotes() {
       const on = units.filter((u) => u.state === "On battery");
@@ -849,6 +831,14 @@
       say("Cleared.", false);
     }
 
+    // Put the page back to a known starting point: the Tier 1 multi-node sample.
+    function resetSample() {
+      clearAll();
+      applyOrder("DEMO-1002");
+      $("od-load-status").textContent = "Reset to sample DEMO-1002.";
+      say("Sample reset.", false);
+    }
+
     // ---- Wiring ----
     root.addEventListener("input", (e) => {
       if (e.target.classList) e.target.classList.remove("od-missing");
@@ -881,6 +871,7 @@
     $("od-copy-wb").addEventListener("click", copyToWorkBoard);
     $("od-copy-td").addEventListener("click", copyToTicketDesk);
     $("od-clear").addEventListener("click", clearAll);
+    $("od-reset").addEventListener("click", resetSample);
 
     update();
 
@@ -891,5 +882,10 @@
     };
   }
 
-  (window.Pages = window.Pages || {})["outage"] = { render, mount };
+  (window.Pages = window.Pages || {})["outage"] = {
+    render,
+    mount,
+    // Pure helpers, exposed so they can be unit tested without a DOM.
+    logic: { pickTier, repeatTypeForCounts, extractNodeData, extractLowestSnr },
+  };
 })();

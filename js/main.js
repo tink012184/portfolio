@@ -31,6 +31,18 @@
   navToggle.addEventListener("click", () => setNavOpen(!nav.classList.contains("open")));
   navLinks.forEach((link) => link.addEventListener("click", () => setNavOpen(false)));
 
+  // The skip link uses a plain #main hash, which the router would read as a route.
+  // Handle it here so it moves focus to the main content instead.
+  const skipLink = document.querySelector('a.sr-only[href="#main"]');
+  const mainEl = document.getElementById("main");
+  if (skipLink && mainEl) {
+    skipLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      mainEl.setAttribute("tabindex", "-1");
+      mainEl.focus();
+    });
+  }
+
   function markActive(path) {
     navLinks.forEach((link) => {
       const target = link.getAttribute("href").replace(/^#/, "");
