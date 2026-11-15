@@ -7,6 +7,7 @@
  */
 function createRouter(routes, { outlet, notFound, onNavigate }) {
   let cleanup = null;
+  let firstRender = true;
 
   function parse() {
     const raw = window.location.hash.replace(/^#/, "") || "/";
@@ -34,6 +35,18 @@ function createRouter(routes, { outlet, notFound, onNavigate }) {
     const target = anchor && document.getElementById(anchor);
     if (target) target.scrollIntoView();
     else window.scrollTo(0, 0);
+
+    // Move focus to the new page heading so keyboard and screen-reader users know
+    // the page changed. Skipped on the first load so the page does not start with
+    // focus already inside the content.
+    if (!firstRender) {
+      const heading = wrapper.querySelector("h1") || wrapper.querySelector("h2");
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
+      }
+    }
+    firstRender = false;
   }
 
   window.addEventListener("hashchange", render);

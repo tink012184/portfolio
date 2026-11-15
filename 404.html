@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Code By Lissa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <script>
+      // GitHub Pages serves this file for any address that is not a real file,
+      // such as /about. The site routes with #/about, so send the visitor there.
+      (function () {
+        var l = window.location;
+        var segs = l.pathname.split("/").filter(Boolean);
+        var base = "/";
+        // On a project address (name.github.io/repo/...) keep the repo folder.
+        if (/\.github\.io$/.test(l.hostname) && segs.length) {
+          base = "/" + segs.shift() + "/";
+        }
+        var route = "/" + segs.join("/");
+        l.replace(l.origin + base + "#" + route);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="./">Code By Lissa</a>&hellip;</p>
+  </body>
+</html>

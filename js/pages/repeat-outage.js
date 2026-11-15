@@ -94,19 +94,9 @@
   // ------------------------------------------------------------------
 
   // Tier 1-4 from the 24 hour (ssa) and 10 day (unplanned) counts, or null when
-  // the counts are below the email threshold.
-  function pickTier(ssa, unplanned) {
-    const s = Number(ssa) || 0;
-    const u = Number(unplanned) || 0;
-    if (s < 5 && u < 6) return null;
-
-    let t = 0;
-    if (s === 5 || u === 6) t = 1;
-    if (s === 6 || u === 7) t = 2;
-    if (s === 7 || u === 8) t = 3;
-    if (s === 8 || u === 9) t = 4;
-    return t || null;
-  }
+  // the counts are below the email threshold (shared with the Outage Template
+  // demo, see js/shared.js).
+  const pickTier = window.DemoShared.pickTier;
 
   function slug(text) {
     return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -180,6 +170,10 @@
       outages. Everything here is fake data, and no email is sent. Load a sample
       order or fill in the form, and the tier is worked out from the outage counts.
     </p>
+    <div class="od-demo-bar">
+      <span class="od-demo-note">Demo data only. Nothing on this page is real, and no email is sent.</span>
+      <button type="button" class="od-btn od-btn-sm" id="ro-reset">Reset sample</button>
+    </div>
   </header>
 
   <div class="od-layout od-layout-2">
@@ -412,9 +406,16 @@
     }
 
     // ---- Create email ----
+    // Missing fields get a red outline and aria-invalid so the state is not color-only.
     function markMissing(ids) {
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
-      ids.forEach((id) => $(id).classList.add("od-missing"));
+      root.querySelectorAll(".od-missing").forEach((el) => {
+        el.classList.remove("od-missing");
+        el.removeAttribute("aria-invalid");
+      });
+      ids.forEach((id) => {
+        $(id).classList.add("od-missing");
+        $(id).setAttribute("aria-invalid", "true");
+      });
       if (ids.length) $(ids[0]).focus();
     }
 
@@ -446,27 +447,12 @@
         ? `${images.length} screenshot${images.length === 1 ? "" : "s"} attached. In the real tool these are pasted into the email along with the text.`
         : "No screenshots attached.";
       $("ro-preview").hidden = false;
-      $("ro-preview").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      $("ro-preview").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
       say(`Tier ${tier} email created.`, false);
     }
 
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        let ok = false;
-        try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
-        ta.remove();
-        return ok;
-      }
-    }
+    const copyText = window.DemoShared.copyText;
 
     async function copyEmail() {
       const text =
@@ -555,13 +541,25 @@
       say("Cleared.", false);
     }
 
+    // Put the page back to a known starting point: the Tier 2 sample order.
+    function resetSample() {
+      clearAll();
+      applySample(ORDERS["DEMO-2002"], "DEMO-2002");
+      $("ro-load-status").textContent = "Reset to sample DEMO-2002.";
+      say("Sample reset.", false);
+    }
+
     // ---- Wiring ----
     $("ro-region").addEventListener("change", () => onLocationChange("region"));
     $("ro-market").addEventListener("change", () => onLocationChange("market"));
     $("ro-hub").addEventListener("change", () => onLocationChange("hub"));
     ["ro-ssa", "ro-unplanned"].forEach((id) => $(id).addEventListener("change", refreshTier));
-    root.addEventListener("input", (e) => e.target.classList && e.target.classList.remove("od-missing"));
-    root.addEventListener("change", (e) => e.target.classList && e.target.classList.remove("od-missing"));
+    const clearInvalid = (e) => {
+      if (e.target.classList) e.target.classList.remove("od-missing");
+      if (e.target.removeAttribute) e.target.removeAttribute("aria-invalid");
+    };
+    root.addEventListener("input", clearInvalid);
+    root.addEventListener("change", clearInvalid);
 
     $("ro-load").addEventListener("click", () => loadOrder());
     $("ro-order").addEventListener("keydown", (e) => {
@@ -574,6 +572,7 @@
     $("ro-copy").addEventListener("click", copyEmail);
     $("ro-chat").addEventListener("click", copyChat);
     $("ro-clear").addEventListener("click", clearAll);
+    $("ro-reset").addEventListener("click", resetSample);
 
     const drop = $("ro-drop");
     const fileInput = $("ro-file");
@@ -631,5 +630,10 @@
     };
   }
 
-  (window.Pages = window.Pages || {})["repeat-outage"] = { render, mount };
+  (window.Pages = window.Pages || {})["repeat-outage"] = {
+    render,
+    mount,
+    // Pure helpers, exposed so they can be unit tested without a DOM.
+    logic: { pickTier, buildEmail },
+  };
 })();

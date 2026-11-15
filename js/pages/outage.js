@@ -159,14 +159,9 @@
   // Pure logic (no DOM)
   // ------------------------------------------------------------------
 
-  // Repeat tier from the 24 hour and 10 day unplanned outage counts.
-  function pickTier(h24, h10) {
-    if (h10 >= 9 || h24 >= 8) return 4;
-    if (h10 === 8 || h24 === 7) return 3;
-    if (h10 === 7 || h24 === 6) return 2;
-    if (h10 === 6 || h24 === 5) return 1;
-    return null;
-  }
+  // Repeat tier from the 24 hour and 10 day unplanned outage counts (shared with
+  // the Repeat Outage demo, see js/shared.js).
+  const pickTier = window.DemoShared.pickTier;
 
   // Exact Repeat Type text for a pair of counts (24 hour count wins ties).
   function repeatTypeForCounts(h24, h10) {
@@ -307,6 +302,10 @@
       ("WorkBoard" and "TicketDesk"). Load a sample order, tweak the fields, and
       watch the repeat tier, breadcrumb and notes update.
     </p>
+    <div class="od-demo-bar">
+      <span class="od-demo-note">Demo data only. Nothing on this page is real.</span>
+      <button type="button" class="od-btn od-btn-sm" id="od-reset">Reset sample</button>
+    </div>
   </header>
 
   <div id="od-tier-alert" class="od-alert" role="status" aria-live="polite" hidden></div>
@@ -620,11 +619,13 @@
         escChoice = "";
         setVal("od-esc-log", "");
         $("od-esc-sup").classList.add("od-missing");
+        $("od-esc-sup").setAttribute("aria-invalid", "true");
         say("Enter the supervisor name first.", true);
         update();
         return;
       }
       $("od-esc-sup").classList.remove("od-missing");
+      $("od-esc-sup").removeAttribute("aria-invalid");
 
       let line;
       if (which === "notified") {
@@ -750,6 +751,14 @@
     }
 
     // ---- Validation + copy ----
+    // Missing fields get a red outline and aria-invalid so the state is not color-only.
+    function clearMissing() {
+      root.querySelectorAll(".od-missing").forEach((el) => {
+        el.classList.remove("od-missing");
+        el.removeAttribute("aria-invalid");
+      });
+    }
+
     function validate(includeDispatch) {
       const required = [
         ["od-scope", val("od-scope")],
@@ -762,9 +771,12 @@
         required.push(["od-tech", techStatus() === "noTech" || val("od-tech").trim()]);
         required.push(["od-ts-label", techStatus()]);
       }
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
+      clearMissing();
       const missing = required.filter(([, v]) => !v);
-      missing.forEach(([id]) => $(id).classList.add("od-missing"));
+      missing.forEach(([id]) => {
+        $(id).classList.add("od-missing");
+        if ($(id).tagName !== "SPAN") $(id).setAttribute("aria-invalid", "true");
+      });
       if (missing.length) {
         say("Fill in the highlighted fields first.", true);
         const first = $(missing[0][0]);
@@ -774,24 +786,7 @@
       return true;
     }
 
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (e) {
-        // Fallback for browsers/contexts without the async clipboard API.
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        let ok = false;
-        try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
-        ta.remove();
-        return ok;
-      }
-    }
+    const copyText = window.DemoShared.copyText;
 
     function batteryNotes() {
       const on = units.filter((u) => u.state === "On battery");
@@ -834,7 +829,7 @@
         "od-address", "od-tech", "od-sup", "od-additional", "od-ping", "od-snr", "od-esc-sup",
         "od-esc-log", "od-related-input"].forEach((id) => setVal(id, ""));
       root.querySelectorAll('input[name="od-techStatus"]').forEach((r) => (r.checked = false));
-      root.querySelectorAll(".od-missing").forEach((el) => el.classList.remove("od-missing"));
+      clearMissing();
       root.querySelectorAll("[data-esc]").forEach((b) => b.classList.remove("od-btn-active"));
       escalationNotes = "";
       escChoice = "";
@@ -849,9 +844,18 @@
       say("Cleared.", false);
     }
 
+    // Put the page back to a known starting point: the Tier 1 multi-node sample.
+    function resetSample() {
+      clearAll();
+      applyOrder("DEMO-1002");
+      $("od-load-status").textContent = "Reset to sample DEMO-1002.";
+      say("Sample reset.", false);
+    }
+
     // ---- Wiring ----
     root.addEventListener("input", (e) => {
       if (e.target.classList) e.target.classList.remove("od-missing");
+      if (e.target.removeAttribute) e.target.removeAttribute("aria-invalid");
       if (e.target.id === "od-order" || e.target.id === "od-related-input" || e.target.id === "od-esc-sup") return;
       update();
     });
@@ -881,6 +885,7 @@
     $("od-copy-wb").addEventListener("click", copyToWorkBoard);
     $("od-copy-td").addEventListener("click", copyToTicketDesk);
     $("od-clear").addEventListener("click", clearAll);
+    $("od-reset").addEventListener("click", resetSample);
 
     update();
 
@@ -891,5 +896,10 @@
     };
   }
 
-  (window.Pages = window.Pages || {})["outage"] = { render, mount };
+  (window.Pages = window.Pages || {})["outage"] = {
+    render,
+    mount,
+    // Pure helpers, exposed so they can be unit tested without a DOM.
+    logic: { pickTier, repeatTypeForCounts, extractNodeData, extractLowestSnr },
+  };
 })();
